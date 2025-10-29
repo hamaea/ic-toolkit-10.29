@@ -12,18 +12,19 @@ function setup() {
 function draw() {
   background(220);
 
-  let micLevel = get.micLevel(); //gives us a value from ZERO TO ONE
+  let micLevel = mic.getLevel(); //gives us a value from ZERO TO ONE
 
   // map(value, start1, stop1, start2, stop2, [withinBounds])
   // so like from 0, 1, we convert 0 to 10 and then 1 to 10
   // 0.5, 0, 1, 50, 100
   // 0.5 -> 0:1 is 1:2, because that's equivalent to 0:1 
-  let mappedLevel = map(micLevel, 0, 1, 10, 100);
+  let mappedLevel = map(micLevel, 0, 1, 20, 100);
+
 
   console.log("original:" + micLevel);
   console.log("mapped: " + mappedLevel);
 
 
-  circle(mouseX, mouseY, micLevel);
+  circle(mouseX, mouseY, mappedLevel);
 
 }
